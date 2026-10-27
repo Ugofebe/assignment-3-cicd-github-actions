@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editor / temp files
+*.swp
+*~
+*.tmp
+
+# Runtime logs (keep the directory, ignore generated logs)
+logs/*.log
+!logs/.gitkeep
