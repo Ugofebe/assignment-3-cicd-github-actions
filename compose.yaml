@@ -1,0 +1,9 @@
+services:
+  devops-tool:
+    build: .
+    image: devops-tool:latest
+    healthcheck:
+      test: ["CMD", "/app/app.sh", "help"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
