@@ -1,0 +1,11 @@
+.git
+.gitignore
+logs/
+*.log
+.DS_Store
+*.swp
+README.md
+grade.sh
+scripts/
+tests/
+.github/
