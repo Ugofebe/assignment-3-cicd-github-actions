@@ -171,4 +171,3 @@ case "$cmd" in
         log "unknown command: '$cmd'"
         exit 2
         ;;
-esac
