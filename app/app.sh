@@ -45,7 +45,12 @@ system_info() {
     host="$(hostname 2>/dev/null || cat /proc/sys/kernel/hostname 2>/dev/null || uname -n)"
     user="$(whoami 2>/dev/null || id -un 2>/dev/null || printf '%s' "${USER:-unknown}")"
     now="$(date)"
-    os="$( . /etc/os-release 2>/dev/null && printf '%s' "$PRETTY_NAME" || uname -s )"
+    if [[ -r /etc/os-release ]]; then
+        # shellcheck source=/dev/null
+        os="$( . /etc/os-release && printf '%s' "${PRETTY_NAME:-$(uname -s)}" )"
+    else
+        os="$(uname -s)"
+    fi
     kernel="$(uname -s -r)"
     if uptime >/dev/null 2>&1; then up="$(uptime)"; else up="unavailable"; fi
     if [[ -r /proc/cpuinfo ]]; then
